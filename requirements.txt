@@ -1,0 +1,6 @@
+fastapi
+uvicorn
+hindsight-client
+pydantic
+python-multipart
+jinja2

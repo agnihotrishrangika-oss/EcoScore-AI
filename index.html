@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoScore AI — Autonomous ESG Memory Auditor</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <!-- Editorial Header -->
+    <header class="site-header">
+        <div>
+            <div class="brand-title">EcoScore <span>AI</span></div>
+            <div class="brand-sub">Autonomous Carbon & Memory Auditor</div>
+        </div>
+        <div>
+            <div class="status-badge">
+                <span class="status-dot"></span>
+                Hindsight SDK Active
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-tag">01 / Overview — Enterprise Carbon Intelligence</div>
+        <h1 class="hero-headline">
+            Where environmental compliance meets <em>persistent agent memory</em>.
+        </h1>
+        <p class="hero-desc">
+            Evaluating supply chain emissions, pricing variances, and quarterly compliance. EcoScore AI leverages Hindsight memory vectors to penalize repeat infractions automatically.
+        </p>
+
+        <!-- KPI Strip -->
+        <div class="kpi-strip">
+            <div class="kpi-card">
+                <div class="kpi-label">Portfolio EcoScore</div>
+                <div class="kpi-val highlight">82 <span style="font-size:1.2rem; color:var(--text-muted);">/ 100</span></div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-label">Total Scope 1-3 Emissions</div>
+                <div class="kpi-val">24,820 <span style="font-size:1rem; color:var(--text-muted);">tCO₂e</span></div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-label">RAG Evidence Coverage</div>
+                <div class="kpi-val">91.4%</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-label">Recalled Vendor Flags</div>
+                <div class="kpi-val highlight">12</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Navigation Tabs -->
+    <div class="tabs-nav">
+        <button onclick="switchTab('tab-portfolio')" id="btn-portfolio" class="tab-btn active">
+            <i class="fas fa-list-ol"></i> <span>01. Portfolio & Cost Matrix</span>
+        </button>
+        <button onclick="switchTab('tab-audit')" id="btn-audit" class="tab-btn">
+            <i class="fas fa-brain"></i> <span>02. Document AI Auditor</span>
+        </button>
+        <button onclick="switchTab('tab-memory')" id="btn-memory" class="tab-btn">
+            <i class="fas fa-database"></i> <span>03. Hindsight Memory Console</span>
+        </button>
+        <button onclick="switchTab('tab-fintech')" id="btn-fintech" class="tab-btn">
+            <i class="fas fa-university"></i> <span>04. FinTech Risk Provisioning</span>
+        </button>
+    </div>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+
+        <!-- Tab 1: Portfolio Heatmap -->
+        <div id="tab-portfolio" class="tab-content active">
+            <div class="grid-2-1">
+                <div class="panel-box">
+                    <div class="panel-header">
+                        <div class="panel-title">Supplier Risk & Price Matrix</div>
+                        <span style="font-family:var(--font-mono); font-size:0.75rem; color:var(--text-muted);">Syncing live entries</span>
+                    </div>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Supplier Name</th>
+                                <th>Category</th>
+                                <th>Emissions (tCO₂e)</th>
+                                <th style="color:var(--accent-red);">Unit Price ($)</th>
+                                <th>Hindsight Record</th>
+                                <th>Score</th>
+                            </tr>
+                        </thead>
+                        <tbody id="portfolioTableBody">
+                            <tr>
+                                <td><strong>Supplier A (Logistics)</strong></td>
+                                <td style="color:var(--text-muted);">Transport</td>
+                                <td>3,420</td>
+                                <td style="font-family:var(--font-mono); font-weight:600;">$45.00</td>
+                                <td><span class="table-tag tag-clean">Clean Record</span></td>
+                                <td style="font-family:var(--font-mono); font-weight:700; color:var(--accent-green);">92 / 100</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Supplier B (Packaging)</strong></td>
+                                <td style="color:var(--text-muted);">Materials</td>
+                                <td>8,100</td>
+                                <td style="font-family:var(--font-mono); font-weight:600;">$32.50</td>
+                                <td><span class="table-tag tag-warning">1 Warning</span></td>
+                                <td style="font-family:var(--font-mono); font-weight:700; color:#eab308;">74 / 100</td>
+                            </tr>
+                            <tr style="background-color: rgba(224,86,56,0.05);">
+                                <td><strong>Supplier C (Chemicals)</strong></td>
+                                <td style="color:var(--text-muted);">Manufacturing</td>
+                                <td>13,300</td>
+                                <td style="font-family:var(--font-mono); font-weight:600;">$88.00</td>
+                                <td><span class="table-tag tag-flag">Repeat Discrepancy</span></td>
+                                <td style="font-family:var(--font-mono); font-weight:700; color:var(--accent-red);">48 / 100</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="panel-box">
+                    <div class="panel-header">
+                        <div class="panel-title">Emissions Split</div>
+                    </div>
+                    <canvas id="emissionsChart" style="max-height: 220px;"></canvas>
+                    <div style="margin-top: 1.5rem; font-size: 0.8rem; color: var(--text-muted); border-top: 1px solid var(--border-color); padding-top: 1rem;">
+                        💡 <strong>Note:</strong> Scope 3 supply chain emissions account for 53.6% of overall portfolio carbon liability.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab 2: Document AI Auditor -->
+        <div id="tab-audit" class="tab-content">
+            <div class="grid-1-1">
+                <div class="panel-box">
+                    <div class="panel-header">
+                        <div class="panel-title">Run Memory-Aware Audit</div>
+                    </div>
+                    <form id="auditForm" onsubmit="submitAudit(event)">
+                        <div class="form-group">
+                            <label class="form-label">Supplier Name</label>
+                            <input type="text" id="supName" value="Supplier D (Chemicals)" class="form-input">
+                        </div>
+
+                        <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+                            <div class="form-group">
+                                <label class="form-label">Category</label>
+                                <input type="text" id="category" value="Manufacturing" class="form-input">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Unit Price ($)</label>
+                                <input type="number" step="0.01" id="price" value="75.50" class="form-input">
+                            </div>
+                        </div>
+
+                        <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+                            <div class="form-group">
+                                <label class="form-label">Scope 1 (tCO₂e)</label>
+                                <input type="number" id="scope1" value="1420" class="form-input">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Scope 2 (tCO₂e)</label>
+                                <input type="number" id="scope2" value="3890" class="form-input">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Audit Report Text & Notes</label>
+                            <textarea id="notes" rows="3" class="form-textarea">Submitted quarterly report with updated utility logs.</textarea>
+                        </div>
+
+                        <button type="submit" class="btn-primary">Run Audit & Retain Hindsight Memory</button>
+                    </form>
+                    <button onclick="exportAuditReport()" class="btn-secondary">📥 Export Audit Report (JSON)</button>
+                </div>
+
+                <div class="panel-box" style="display:flex; flex-direction:column; justify-between;">
+                    <div>
+                        <div class="panel-header">
+                            <div class="panel-title">Hindsight Audit Output</div>
+                        </div>
+                        <div id="auditOutput" class="console-box">Submit an audit to execute Hindsight memory recall and retention loop...</div>
+                    </div>
+
+                    <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--border-color);">
+                        <div style="font-family:var(--font-mono); font-size:0.7rem; color:var(--accent-red); margin-bottom:0.5rem; text-transform:uppercase;">
+                            <i class="fas fa-terminal"></i> Live Hindsight SDK Inspector
+                        </div>
+                        <div id="sdkInspector" class="inspector-box">Waiting for SDK traffic... (`client.recall()` / `client.retain()`)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab 3: Hindsight Memory Console -->
+        <div id="tab-memory" class="tab-content">
+            <div class="panel-box">
+                <div class="panel-header">
+                    <div class="panel-title">🧠 Hindsight Vector Memory Search</div>
+                </div>
+                <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem;">Query persistent memory across past quarterly audit logs via <code>client.recall()</code>:</p>
+                <div style="display:flex; gap:1rem; margin-bottom:1.5rem;">
+                    <input type="text" id="memQuery" value="Scope 2 missing certificates" class="form-input" style="flex:1;">
+                    <button onclick="queryMemory()" class="btn-primary" style="width:auto; padding:0 2rem;">Recall Memories</button>
+                </div>
+                <div id="memoryResults" style="display:flex; flex-direction:column; gap:0.75rem;">
+                    <div style="padding:1rem; background-color:var(--bg-main); border:1px solid var(--border-color); border-radius:6px; font-family:var(--font-mono); font-size:0.8rem;">
+                        • <strong>Recalled Memory (Q1 2026):</strong> Supplier C (Chemicals) failed Scope 2 electricity verification. Flagged.
+                    </div>
+                    <div style="padding:1rem; background-color:var(--bg-main); border:1px solid var(--border-color); border-radius:6px; font-family:var(--font-mono); font-size:0.8rem;">
+                        • <strong>Recalled Memory (Q2 2026):</strong> Supplier C reported +42% spike in carbon intensity with unverified offset claims.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab 4: FinTech Underwriting -->
+        <div id="tab-fintech" class="tab-content">
+            <div class="panel-box">
+                <div class="panel-header">
+                    <div class="panel-title">FinTech Credit Underwriting & Risk Provisioning</div>
+                </div>
+                <div class="grid-1-1">
+                    <div>
+                        <div class="form-group" style="margin-bottom: 2rem;">
+                            <label class="form-label">Commercial Loan Portfolio Size ($M)</label>
+                            <input type="range" id="loanSlider" min="10" max="500" value="150" class="range-slider" oninput="updateFintech()">
+                            <div style="font-family:var(--font-serif); font-size:1.5rem; margin-top:0.5rem;">$<span id="loanVal">150</span> Million</div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">CBAM Carbon Tax Penalty ($ / tCO₂e)</label>
+                            <input type="range" id="taxSlider" min="50" max="250" value="120" class="range-slider" oninput="updateFintech()">
+                            <div style="font-family:var(--font-serif); font-size:1.5rem; margin-top:0.5rem;">$<span id="taxVal">120</span> per ton</div>
+                        </div>
+                    </div>
+                    <div style="background-color: var(--bg-main); border:1px solid var(--border-color); padding:2rem; border-radius:8px; display:flex; flex-direction:column; justify-content:center;">
+                        <div class="kpi-label">Calculated Portfolio Carbon Liability</div>
+                        <div id="liabilityVal" style="font-family:var(--font-serif); font-size:3.5rem; color:var(--accent-red); margin-top:0.5rem;">$2.98 M</div>
+                        <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 1rem;">Directly factored into bank default risk provisions based on EcoScore compliance penalties.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
